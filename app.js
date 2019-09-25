@@ -11,28 +11,28 @@ var pessoas = [
         id: 1,
         nome: "Michael Oliveira de Deus",
         idade: 24,
-        pofissao: "Developer",
+        profissao: "Developer",
         criado: new Date().toISOString()
     },
     {
         id: 2,
         nome: "Pedro Henrique",
         idade: 30,
-        pofissao: "Medico",
+        profissao: "Medico",
         criado: new Date().toISOString()
     },
     {
         id: 3,
         nome: "Carlos Chavier Doido",
         idade: 20,
-        pofissao: "Armengueiro de Software",
+        profissao: "Armengueiro de Software",
         criado: new Date().toISOString()
     },
     {
         id: 4,
         nome: "João Ferreira",
         idade: 19,
-        pofissao: "Programador Orientado a Gambiarra",
+        profissao: "Programador Orientado a Gambiarra",
         criado: new Date().toISOString()
     }
 ]
