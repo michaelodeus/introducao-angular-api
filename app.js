@@ -6,79 +6,79 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-var peoples = [
+var pessoas = [
     {
         id: 1,
-        name: "Michael Oliveira de Deus",
-        age: 24,
-        profession: "Developer",
-        createdAt: new Date().toISOString()
+        nome: "Michael Oliveira de Deus",
+        idade: 24,
+        pofissao: "Developer",
+        criado: new Date().toISOString()
     },
     {
         id: 2,
-        name: "Pedro Henrique",
-        age: 30,
-        profession: "Medico",
-        createdAt: new Date().toISOString()
+        nome: "Pedro Henrique",
+        idade: 30,
+        pofissao: "Medico",
+        criado: new Date().toISOString()
     },
     {
         id: 3,
-        name: "Carlos Chavier Doido",
-        age: 20,
-        profession: "Armengueiro de Software",
-        createdAt: new Date().toISOString()
+        nome: "Carlos Chavier Doido",
+        idade: 20,
+        pofissao: "Armengueiro de Software",
+        criado: new Date().toISOString()
     },
     {
         id: 4,
-        name: "João Ferreira",
-        age: 19,
-        profession: "Programador Orientado a Gambiarra",
-        createdAt: new Date().toISOString()
+        nome: "João Ferreira",
+        idade: 19,
+        pofissao: "Programador Orientado a Gambiarra",
+        criado: new Date().toISOString()
     }
 ]
 
-app.post('/api/peoples', (req, res) => {
-    let idGerado = peoples.length;
-    let people = { ...req.body, id: ++idGerado, createdAt: new Date().toISOString() };
+app.post('/api/pessoas', (req, res) => {
+    let idGerado = pessoas.length;
+    let pessoa = { ...req.body, id: ++idGerado, criado: new Date().toISOString() };
 
-    peoples.push(people);
+    pessoas.push(pessoa);
 
-    res.json(people);
+    res.json(pessoa);
 });
 
-app.get('/api/peoples', (req, res) => {
-    res.json(peoples)
+app.get('/api/pessoas', (req, res) => {
+    res.json(pessoas)
 });
 
-app.get('/api/peoples/:id', (req, res) => {
-    let people = peoples.find(p => p.id == req.params.id);
-    res.json(people)
+app.get('/api/pessoas/:id', (req, res) => {
+    let pessoa = pessoas.find(p => p.id == req.params.id);
+    res.json(pessoa)
 });
 
-app.put('/api/peoples/:id', (req, res) => {
+app.put('/api/pessoas/:id', (req, res) => {
     //Pega o objeto do array
-    let people = peoples.find(p => p.id == req.params.id);
+    let pessoa = pessoas.find(p => p.id == req.params.id);
 
     //Pega o indice do objeto no array
-    let indexPeople = peoples.findIndex(p => p.id == req.params.id);
+    let indexpessoa = pessoas.findIndex(p => p.id == req.params.id);
 
     //Remove o objeto do array
-    peoples.splice(indexPeople, 1);
+    pessoas.splice(indexpessoa, 1);
 
-    let newPeople = { ...people, ...req.body };
+    let newpessoa = { ...pessoa, ...req.body };
 
-    peoples.push(newPeople);
+    pessoas.push(newpessoa);
 
-    res.json(newPeople);
+    res.json(newpessoa);
 
 });
 
-app.delete('/api/peoples/:id', (req, res) => {
-    let people = peoples.find(p => p.id == req.params.id);
+app.delete('/api/pessoas/:id', (req, res) => {
+    let pessoa = pessoas.find(p => p.id == req.params.id);
 
-    let indexPeople = peoples.findIndex(p => p.id == req.params.id);
-    peoples.splice(indexPeople, 1);
-    res.json(people)
+    let indexpessoa = pessoas.findIndex(p => p.id == req.params.id);
+    pessoas.splice(indexpessoa, 1);
+    res.json(pessoa)
 })
 
 app.listen(8000);
